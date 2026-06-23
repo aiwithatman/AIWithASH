@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Ebooks — AnimeBatman</title>
+<meta name="description" content="AI ebooks covering prompt engineering, AI for developers, side hustles, content creation, and productivity prompts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+.page-hero{background:linear-gradient(135deg,#10b98115,#667eea20,#09090b);text-align:center;padding:80px 20px 60px;border-bottom:1px solid var(--border)}
+.page-hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:12px;background:linear-gradient(135deg,#10b981,#667eea);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-hero p{color:var(--text2);max-width:600px;margin:0 auto;font-size:1.1rem;line-height:1.6}
+
+.filter-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:36px}
+.filter-btn{padding:8px 20px;border-radius:50px;border:1px solid var(--border);background:transparent;color:var(--text2);cursor:pointer;font-size:.85rem;font-weight:500;transition:all .2s}
+.filter-btn:hover{border-color:var(--accent);color:var(--text)}
+.filter-btn.active{background:linear-gradient(135deg,var(--accent),var(--accent2));border-color:transparent;color:#fff}
+
+.ebook-tier{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+
+/* Bundle CTA */
+.bundle-cta{background:linear-gradient(135deg,var(--surface),var(--surface2));border:2px solid var(--green);border-radius:var(--radius);padding:40px;text-align:center;margin:40px 0}
+.bundle-cta h2{font-size:1.6rem;font-weight:800;margin-bottom:8px}
+.bundle-cta p{color:var(--text2);margin-bottom:20px;font-size:.95rem}
+.bundle-cta .discount{display:inline-block;background:rgba(16,185,129,.12);color:var(--green);padding:4px 14px;border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:12px}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../" class="nav-logo">AnimeBatman</a>
+  <div class="nav-links">
+    <a href="../manga/">Manga Series</a>
+    <a href="../ai-books/" class="active">AI Ebooks</a>
+    <a href="../about/">About</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1>AI &amp; Productivity Ebooks</h1>
+  <p>Master AI tools, boost your productivity, and build income streams — all at prices that make sense.</p>
+</div>
+
+<main class="container">
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" onclick="filterBy('all')">All</button>
+    <button class="filter-btn" onclick="filterBy('ai')">AI</button>
+    <button class="filter-btn" onclick="filterBy('side hustle')">Side Hustle</button>
+    <button class="filter-btn" onclick="filterBy('productivity')">Productivity</button>
+  </div>
+
+  <div class="ebook-tier" id="ebookList"></div>
+
+  <div class="bundle-cta">
+    <h2>📦 All 5 AI Ebooks Bundle</h2>
+    <p>Get the complete AI knowledge pack — prompt engineering, coding, side hustles, content creation, and productivity prompts.</p>
+    <div class="discount">🔥 Save ₹150 — 43% off</div>
+    <div style="font-size:2rem;font-weight:900;color:var(--accent);margin-bottom:16px">₹350 <span style="font-size:1rem;color:var(--text3);text-decoration:line-through;font-weight:400">₹500</span></div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a href="https://animebatman.gumroad.com/l/fahays" target="_blank" class="btn btn-gumroad">Buy AI Bundle on Gumroad</a>
+      <a href="upi://pay?pa=9899581558-a190%40ybl&pn=AnimeBatman&am=350&cu=INR&tn=AI+Ebooks+Bundle" target="_blank" class="btn btn-upi">Pay via UPI ₹350</a>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="../">Home</a>
+    <a href="../manga/">Manga Series</a>
+    <a href="../ai-books/">AI Ebooks</a>
+    <a href="../about/">About</a>
+  </div>
+  <p>Made with ❤️ by AnimeBatman &bull; UPI: 9899581558-a190@ybl</p>
+  <p style="margin-top:6px;font-size:.8rem">&copy; 2026 AnimeBatman</p>
+</footer>
+
+<script>
+const UPI_ID = "9899581558-a190@ybl";
+const EBOOKS = [
+  {name:"Prompt Engineering Masterclass",desc:"Master the art of AI prompting. Covers chain-of-thought, few-shot learning, role prompting, and 50+ practical examples across industries.",price:99,cat:"ai",gumroad:"https://animebatman.gumroad.com/l/fahays",cover:"https://public-files.gumroad.com/z4it31vx2unoo9ysyjc3tch02ihu"},
+  {name:"AI for Developers",desc:"Harness AI in your dev workflow — code generation, debugging, refactoring, documentation, and automated testing with LLMs.",price:99,cat:"ai",gumroad:"https://animebatman.gumroad.com/l/zloquy",cover:"https://public-files.gumroad.com/cnluwu8rja4r4n5191mijdmgu7xl"},
+  {name:"AI Side Hustles in India",desc:"15+ proven AI side hustles tailored for the Indian market. Step-by-step setup with free tools and real income potential.",price:99,cat:"side hustle",gumroad:"https://animebatman.gumroad.com/l/kugeeh",cover:"https://public-files.gumroad.com/aa6njx2ay1gz2m13dniqb9w3m67h"},
+  {name:"AI Content Creation Bundle",desc:"Create content 10x faster — blog posts, social media, newsletters, video scripts, and repurposing strategies with 100+ templates.",price:79,cat:"ai",gumroad:"https://animebatman.gumroad.com/l/zjerb",cover:"https://public-files.gumroad.com/dd2wbj8a4jkz4ozq83p8ex5j4eeo"},
+  {name:"100 AI Prompts for Productivity",desc:"100 battle-tested prompts organized by category. Just copy, paste, and get results instantly.",price:79,cat:"productivity",gumroad:"https://animebatman.gumroad.com/l/efmaj",cover:"https://public-files.gumroad.com/0nnfi0n1sc1tf5hgjnccwibuekkx"}
+];
+
+function upiLink(pa,am,tn){return "upi://pay?pa="+encodeURIComponent(pa)+"&pn=AnimeBatman&am="+am+"&cu=INR&tn="+encodeURIComponent(tn)}
+
+function renderBooks(list) {
+  document.getElementById("ebookList").innerHTML = list.map(p => `
+  <div class="card">
+    <img class="card-img" src="${p.cover}" alt="${p.name}" loading="lazy">
+    <div class="card-body">
+      <h3>${p.name}</h3>
+      <div class="desc">${p.desc}</div>
+      <div class="card-footer">
+        <span class="price">₹${p.price}</span>
+        <div class="card-actions">
+          <a href="${p.gumroad}" target="_blank" class="btn btn-gumroad btn-sm">Gumroad</a>
+          <a href="${upiLink(UPI_ID, p.price, p.name)}" target="_blank" class="btn btn-upi btn-sm">UPI</a>
+        </div>
+      </div>
+    </div>
+  </div>`).join("");
+}
+
+function filterBy(cat) {
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  event.target.classList.add("active");
+  renderBooks(cat === "all" ? EBOOKS : EBOOKS.filter(e => e.cat === cat));
+}
+
+renderBooks(EBOOKS);
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manga Creation with AI — AnimeBatman</title>
+<meta name="description" content="Master AI-powered manga creation. 4-part ebook series from fundamentals to publishing & monetizing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+/* Hero */
+.page-hero{background:linear-gradient(135deg,#667eea18,#764ba220,#09090b);text-align:center;padding:80px 20px 60px;border-bottom:1px solid var(--border)}
+.page-hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:12px;background:linear-gradient(135deg,#667eea,#a78bfa);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.page-hero p{color:var(--text2);max-width:600px;margin:0 auto;font-size:1.1rem;line-height:1.6}
+.page-hero .series-badge{display:inline-block;background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.25);color:#a78bfa;padding:6px 18px;border-radius:50px;font-size:.8rem;font-weight:600;margin-bottom:20px;letter-spacing:.5px}
+
+/* Series overview */
+.series-overview{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:40px;margin-bottom:40px}
+.series-overview h2{font-size:1.5rem;font-weight:800;margin-bottom:16px}
+.series-overview p{color:var(--text2);line-height:1.7;margin-bottom:20px}
+.series-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tl-step{text-align:center;padding:16px;background:var(--surface2);border-radius:var(--radius-sm);border:1px solid var(--border);position:relative}
+.tl-step .num{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;margin:0 auto 10px}
+.tl-step h4{font-size:.9rem;font-weight:600;margin-bottom:4px}
+.tl-step p{font-size:.78rem;color:var(--text3);margin:0}
+
+/* Product list (full-width manga cards) */
+.manga-list{display:flex;flex-direction:column;gap:20px}
+.manga-card{display:grid;grid-template-columns:220px 1fr;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:all .3s}
+.manga-card:hover{transform:translateX(4px);border-color:var(--accent);box-shadow:0 8px 30px rgba(102,126,234,.1)}
+.manga-card-img{width:100%;height:100%;object-fit:cover;min-height:220px;background:var(--surface2)}
+.manga-card-body{padding:24px;display:flex;flex-direction:column;justify-content:center}
+.manga-card .part-badge{display:inline-block;background:rgba(167,139,250,.1);color:#a78bfa;padding:3px 12px;border-radius:20px;font-size:.75rem;font-weight:600;margin-bottom:8px;width:fit-content}
+.manga-card h3{font-size:1.2rem;font-weight:700;margin-bottom:6px}
+.manga-card .desc{color:var(--text2);font-size:.88rem;line-height:1.6;margin-bottom:14px}
+.manga-card .card-footer{display:flex;align-items:center;justify-content:space-between}
+.manga-card .price{font-size:1.3rem;font-weight:700;color:var(--accent)}
+.manga-card .btn-upi,.manga-card .btn-gumroad{padding:8px 16px;font-size:.82rem}
+
+/* Bundle CTA */
+.bundle-cta{background:linear-gradient(135deg,var(--surface),var(--surface2));border:2px solid var(--accent);border-radius:var(--radius);padding:40px;text-align:center;margin-top:40px}
+.bundle-cta h2{font-size:1.6rem;font-weight:800;margin-bottom:8px}
+.bundle-cta p{color:var(--text2);margin-bottom:20px;font-size:.95rem}
+.bundle-cta .total{font-size:2rem;font-weight:900;color:var(--accent);margin-bottom:16px}
+.bundle-cta .discount{display:inline-block;background:rgba(16,185,129,.12);color:var(--green);padding:4px 14px;border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:16px}
+
+@media(max-width:768px){
+  .manga-card{grid-template-columns:1fr}
+  .manga-card-img{max-height:200px}
+  .series-timeline{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../" class="nav-logo">AnimeBatman</a>
+  <div class="nav-links">
+    <a href="../manga/" class="active">Manga Series</a>
+    <a href="../ai-books/">AI Ebooks</a>
+    <a href="../about/">About</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="series-badge">📘 4-Part Series</div>
+  <h1>Manga Creation with AI</h1>
+  <p>From your first sketch to published manga — a complete 4-part guide using AI tools. No art experience needed.</p>
+</div>
+
+<main class="container">
+
+  <!-- Series overview -->
+  <div class="series-overview">
+    <h2>Your Manga Journey</h2>
+    <p>This series takes you from absolute beginner to published manga creator using the power of AI. Each part builds on the last — start anywhere, but together they form a complete workflow.</p>
+    <div class="series-timeline">
+      <div class="tl-step"><div class="num">1</div><h4>Fundamentals</h4><p>AI tools, storytelling &amp; planning</p></div>
+      <div class="tl-step"><div class="num">2</div><h4>Character Design</h4><p>Consistent characters &amp; expressions</p></div>
+      <div class="tl-step"><div class="num">3</div><h4>Animation</h4><p>Motion effects &amp; panel transitions</p></div>
+      <div class="tl-step"><div class="num">4</div><h4>Publishing</h4><p>Platforms, revenue &amp; legal</p></div>
+    </div>
+  </div>
+
+  <!-- All 4 parts -->
+  <div class="manga-list" id="manga-list"></div>
+
+  <!-- Bundle CTA -->
+  <div class="bundle-cta">
+    <h2>📦 Buy the Complete Series</h2>
+    <p>Get all 4 parts and save ₹117 — the complete manga creation toolkit.</p>
+    <div class="discount">🔥 Save ₹117 — 37% off</div>
+    <div class="total">₹316 <span style="font-size:1rem;color:var(--text3);text-decoration:line-through;font-weight:400">₹433</span></div>
+    <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+      <a href="https://animebatman.gumroad.com/l/rimkt" target="_blank" class="btn btn-gumroad">Buy on Gumroad</a>
+      <a href="upi://pay?pa=9899581558-a190%40ybl&pn=AnimeBatman&am=316&cu=INR&tn=Manga+Creation+Bundle" target="_blank" class="btn btn-upi">Pay via UPI ₹316</a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="../">Home</a>
+    <a href="../manga/">Manga Series</a>
+    <a href="../ai-books/">AI Ebooks</a>
+    <a href="../about/">About</a>
+  </div>
+  <p>Made with ❤️ by AnimeBatman &bull; UPI: 9899581558-a190@ybl</p>
+  <p style="margin-top:6px;font-size:.8rem">&copy; 2026 AnimeBatman</p>
+</footer>
+
+<script>
+const UPI_ID = "9899581558-a190@ybl";
+const MANGA_PARTS = [
+  {part:"Part 1",title:"Fundamentals",desc:"Your first step into AI-powered manga creation. Covers AI art tool setup (Stable Diffusion, Midjourney, DALL-E), manga storytelling fundamentals, character archetypes, panel composition, and planning your first 10-page one-shot with zero investment.",price:79,gumroad:"https://animebatman.gumroad.com/l/rimkt",cover:"https://public-files.gumroad.com/st91lju4iuj7rzddpwr4rpusm3i6"},
+  {part:"Part 2",title:"Character Design",desc:"Master AI character design for manga. Generate consistent character sheets across multiple angles, control facial expressions, design unique costumes, create cohesive character families, and maintain visual consistency using advanced prompting techniques.",price:79,gumroad:"https://animebatman.gumroad.com/l/ogrcv",cover:"https://public-files.gumroad.com/bclnoawctg0mqbf2zb2kc37tldws"},
+  {part:"Part 3",title:"Animation",desc:"Add motion to your manga panels. AI animation tools, smooth panel transitions, motion effects (speed lines, impact frames, weather), lip-sync basics, and exporting for social media. Transform static panels into engaging animated content.",price:79,gumroad:"https://animebatman.gumroad.com/l/xhfpqw",cover:"https://public-files.gumroad.com/kyfow0czr15iujhwa0crvqimxn4h"},
+  {part:"Part 4",title:"Publishing & Monetizing",desc:"Turn your manga into income. Publishing platforms (Webtoon, Tapas, Amazon KDP), revenue models (ads, subscriptions, print-on-demand), audience building, licensing, copyright considerations for AI art, and scaling from hobby to business.",price:79,gumroad:"https://animebatman.gumroad.com/l/mtxkvk",cover:"https://public-files.gumroad.com/e2orcs2pb9noamfbkqwaqr81afv0"}
+];
+
+function upiLink(pa,am,tn){return "upi://pay?pa="+encodeURIComponent(pa)+"&pn=AnimeBatman&am="+am+"&cu=INR&tn="+encodeURIComponent(tn)}
+
+document.getElementById("manga-list").innerHTML = MANGA_PARTS.map(p => `
+<div class="manga-card">
+  <img class="manga-card-img" src="${p.cover}" alt="${p.title}" loading="lazy">
+  <div class="manga-card-body">
+    <div class="part-badge">${p.part}</div>
+    <h3>${p.title}</h3>
+    <div class="desc">${p.desc}</div>
+    <div class="card-footer">
+      <span class="price">₹${p.price}</span>
+      <div class="card-actions">
+        <a href="${p.gumroad}" target="_blank" class="btn btn-gumroad btn-sm">Gumroad</a>
+        <a href="${upiLink(UPI_ID, p.price, 'Manga '+p.part+' '+p.title)}" target="_blank" class="btn btn-upi btn-sm">UPI</a>
+      </div>
+    </div>
+  </div>
+</div>`).join("");
+</script>
+</body>
+</html>

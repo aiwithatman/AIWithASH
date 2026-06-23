@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — AnimeBatman</title>
+<meta name="description" content="About AnimeBatman — creating practical AI resources for the Indian audience.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+.page-hero{background:linear-gradient(135deg,#667eea15,#764ba220,#09090b);text-align:center;padding:80px 20px 60px;border-bottom:1px solid var(--border)}
+.page-hero h1{font-size:clamp(2rem,5vw,3.5rem);font-weight:900;margin-bottom:12px}
+.page-hero p{color:var(--text2);max-width:600px;margin:0 auto;font-size:1.1rem}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.about-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:32px}
+.about-card h2{font-size:1.3rem;font-weight:700;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.about-card p{color:var(--text2);line-height:1.7;font-size:.95rem}
+.values{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+.value-item{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:16px;text-align:center}
+.value-item .icon{font-size:1.5rem;margin-bottom:6px}
+.value-item h4{font-size:.9rem;font-weight:600;margin-bottom:4px}
+.value-item p{font-size:.8rem;color:var(--text3)}
+
+.contact-methods{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:24px}
+.contact-card{background:var(--surface2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:20px;text-align:center;text-decoration:none;color:var(--text);transition:all .3s}
+.contact-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+.contact-card .icon{font-size:1.8rem;margin-bottom:8px}
+.contact-card h4{font-size:.95rem;font-weight:600;margin-bottom:4px}
+.contact-card p{font-size:.82rem;color:var(--text3)}
+
+@media(max-width:768px){
+  .about-grid{grid-template-columns:1fr}
+  .values{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="../" class="nav-logo">AnimeBatman</a>
+  <div class="nav-links">
+    <a href="../manga/">Manga Series</a>
+    <a href="../ai-books/">AI Ebooks</a>
+    <a href="../about/" class="active">About</a>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <h1>About AnimeBatman</h1>
+  <p>Practical AI resources for the Indian market — no fluff, just actionable knowledge at fair prices.</p>
+</div>
+
+<main class="container">
+  <div class="about-grid">
+    <div>
+      <div class="about-card">
+        <h2>🎯 Our Mission</h2>
+        <p>We believe AI knowledge should be accessible and affordable — especially in India where the potential is massive but quality resources in the right price range are scarce. Every product we create is designed to be <strong style="color:var(--text)">practical, actionable, and beginner-friendly</strong>.</p>
+        <p style="margin-top:12px">Whether you want to master prompt engineering, create manga with AI, or build a side hustle — we've got you covered with step-by-step guides that actually deliver results.</p>
+      </div>
+
+      <div class="about-card" style="margin-top:20px">
+        <h2>💎 Our Values</h2>
+        <div class="values">
+          <div class="value-item"><div class="icon">💰</div><h4>Affordable</h4><p>₹79-₹99 per ebook</p></div>
+          <div class="value-item"><div class="icon">🇮🇳</div><h4>Made for India</h4><p>UPI payments, Indian context</p></div>
+          <div class="value-item"><div class="icon">📖</div><h4>Actionable</h4><p>Step-by-step, no fluff</p></div>
+          <div class="value-item"><div class="icon">🤝</div><h4>Beginner-Friendly</h4><p>No prior experience needed</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="about-card">
+        <h2>📬 Get in Touch</h2>
+        <p>Questions, feedback, or issues? Reach out — we respond within 24 hours.</p>
+        <div class="contact-methods">
+          <a href="mailto:animewithatman@gmail.com" class="contact-card">
+            <div class="icon">📧</div>
+            <h4>Email</h4>
+            <p>animewithatman<br>@gmail.com</p>
+          </a>
+          <a href="https://animebatman.gumroad.com" target="_blank" class="contact-card">
+            <div class="icon">🛍️</div>
+            <h4>Gumroad</h4>
+            <p>animebatman<br>.gumroad.com</p>
+          </a>
+          <a href="https://github.com/aiwithatman" target="_blank" class="contact-card">
+            <div class="icon">💻</div>
+            <h4>GitHub</h4>
+            <p>@aiwithatman</p>
+          </a>
+        </div>
+      </div>
+
+      <div class="about-card" style="margin-top:20px">
+        <h2>📊 Stats</h2>
+        <div class="values">
+          <div class="value-item"><div class="icon">📚</div><h4>9 Products</h4><p>Across AI &amp; Manga</p></div>
+          <div class="value-item"><div class="icon">💰</div><h4>₹79-₹99</h4><p>Price range</p></div>
+          <div class="value-item"><div class="icon">🇮🇳</div><h4>UPI</h4><p>Indian payments</p></div>
+          <div class="value-item"><div class="icon">🌐</div><h4>Global</h4><p>Gumroad available</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="footer-links">
+    <a href="../">Home</a>
+    <a href="../manga/">Manga Series</a>
+    <a href="../ai-books/">AI Ebooks</a>
+    <a href="../about/">About</a>
+  </div>
+  <p>Made with ❤️ by AnimeBatman &bull; UPI: 9899581558-a190@ybl</p>
+  <p style="margin-top:6px;font-size:.8rem">&copy; 2026 AnimeBatman</p>
+</footer>
+</body>
+</html>
