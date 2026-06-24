@@ -59,7 +59,7 @@
     <div style="font-size:2rem;font-weight:900;color:var(--accent);margin-bottom:16px">₹350 <span style="font-size:1rem;color:var(--text3);text-decoration:line-through;font-weight:400">₹500</span></div>
     <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
       <a href="https://animebatman.gumroad.com/l/fahays" target="_blank" class="btn btn-gumroad">Buy AI Bundle on Gumroad</a>
-      <a href="upi://pay?pa=9899581558-a190%40ybl&pn=AnimeBatman&am=350&cu=INR&tn=AI+Ebooks+Bundle" target="_blank" class="btn btn-upi">Pay via UPI ₹350</a>
+      <button onclick="openUPI('AI Ebooks Bundle (All 5)', 350)" class="btn btn-upi">Pay via UPI ₹350</button>
     </div>
   </div>
 </main>
@@ -85,7 +85,26 @@ const EBOOKS = [
   {name:"100 AI Prompts for Productivity",desc:"100 battle-tested prompts organized by category. Just copy, paste, and get results instantly.",price:79,cat:"productivity",gumroad:"https://animebatman.gumroad.com/l/efmaj",cover:"https://public-files.gumroad.com/0nnfi0n1sc1tf5hgjnccwibuekkx"}
 ];
 
-function upiLink(pa,am,tn){return "upi://pay?pa="+encodeURIComponent(pa)+"&pn=AnimeBatman&am="+am+"&cu=INR&tn="+encodeURIComponent(tn)}
+function openUPI(name, amount) {
+  const url = "upi://pay?pa="+encodeURIComponent(UPI_ID)+"&pn=AI+with+ASH&am="+amount+"&cu=INR&tn="+encodeURIComponent(name);
+  document.getElementById("upi-title").textContent = name;
+  document.getElementById("upi-amount").textContent = "₹"+amount;
+  document.getElementById("upi-id-display").textContent = UPI_ID;
+  document.getElementById("upi-qr-img").src = "https://api.qrserver.com/v1/create-qr-code/?size=300x300&data="+encodeURIComponent(url);
+  document.getElementById("upi-modal").classList.add("open");
+  document.body.style.overflow = "hidden";
+}
+function closeUPI() {
+  document.getElementById("upi-modal").classList.remove("open");
+  document.body.style.overflow = "";
+}
+function copyUPI() {
+  navigator.clipboard.writeText(UPI_ID).then(() => {
+    const btn = document.querySelector(".copy-btn");
+    btn.textContent = "Copied!";
+    setTimeout(() => btn.textContent = "Copy", 2000);
+  });
+}
 
 function renderBooks(list) {
   document.getElementById("ebookList").innerHTML = list.map(p => `
@@ -98,7 +117,7 @@ function renderBooks(list) {
         <span class="price">₹${p.price}</span>
         <div class="card-actions">
           <a href="${p.gumroad}" target="_blank" class="btn btn-gumroad btn-sm">Gumroad</a>
-          <a href="${upiLink(UPI_ID, p.price, p.name)}" target="_blank" class="btn btn-upi btn-sm">UPI</a>
+          <button onclick="openUPI('${p.name}', ${p.price})" class="btn btn-upi btn-sm">UPI</button>
         </div>
       </div>
     </div>
@@ -112,6 +131,29 @@ function filterBy(cat) {
 }
 
 renderBooks(EBOOKS);
+document.addEventListener("keydown", e => { if(e.key === "Escape") closeUPI(); });
 </script>
+
+<!-- UPI Modal -->
+<div class="upi-modal" id="upi-modal">
+  <div class="upi-overlay" onclick="closeUPI()"></div>
+  <div class="upi-content">
+    <button class="upi-close" onclick="closeUPI()">✕</button>
+    <h3 id="upi-title">Product</h3>
+    <div class="amount" id="upi-amount">₹99</div>
+    <div class="upi-qr"><img id="upi-qr-img" src="" alt="QR"></div>
+    <div class="upi-id-wrap">
+      <span id="upi-id-display">9899581558-a190@ybl</span>
+      <button class="copy-btn" onclick="copyUPI()">Copy</button>
+    </div>
+    <ol class="upi-steps">
+      <li>Open any UPI app (Google Pay, PhonePe, Paytm)</li>
+      <li>Scan the QR code <strong>or</strong> copy the UPI ID above</li>
+      <li>Pay the exact amount shown</li>
+      <li>Download your ebook instantly from Gumroad</li>
+    </ol>
+  </div>
+</div>
+
 </body>
 </html>
